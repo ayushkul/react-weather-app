@@ -8,16 +8,19 @@ https://ayushkul.github.io/react-weather-app
 
 https://openweathermap.org/current
 
-### API Query
-`https://api.openweathermap.org/data/2.5/weather?q={CITY_NAME}&appid={API_KEY}`
+### API Info
+* Method: `GET`
+* URL: `https://api.openweathermap.org/data/2.5/weather?q={CITY_NAME}&appid={API_KEY}`
 
 ### Libraries used
 * `styled-components`
 * `axios`
 * `react-scripts`
 
-### Icons can be downloaded from -
-[ayushkul/react-weather-app](https://github.com/ayushkul/react-weather-app/tree/master/public/icons)
+### Icons & Font -
+* Icons: [ayushkul/react-weather-app](https://github.com/ayushkul/react-weather-app/tree/master/public/icons)
+* Font Link: `<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">`
+
 
 ### Whom do I talk to? ###
 
