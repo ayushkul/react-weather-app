@@ -3,7 +3,8 @@ import styled from "styled-components";
 import {WeatherIcons} from "../App";
 
 export const WeatherInfoIcons = {
-    temp: "/react-weather-app//icons/temp.svg",
+    sunset: "/react-weather-app/icons/temp.svg",
+    sunrise: "/react-weather-app/icons/temp.svg",
     humidity: "/react-weather-app/icons/humidity.svg",
     wind: "/react-weather-app/icons/wind.svg",
     pressure: "/react-weather-app/icons/pressure.svg",
@@ -88,6 +89,10 @@ const WeatherInfoComponent = (props) => {
 };
 const WeatherComponent = (props) => {
     const {weather} = props;
+    const isDay = weather?.weather[0].icon?.includes('d')
+    const getTime = (timeStamp) => {
+        return `${new Date(timeStamp * 1000).getHours()}:${new Date(timeStamp * 1000).getMinutes()}`
+    }
     return (
         <>
             <WeatherContainer>
@@ -101,8 +106,8 @@ const WeatherComponent = (props) => {
 
             <WeatherInfoLabel>Weather Info</WeatherInfoLabel>
             <WeatherInfoContainer>
-                <WeatherInfoComponent name={"temp"}
-                                      value={`${Math.floor(weather?.main?.temp_max - 273)} - ${Math.floor(weather?.main?.temp_min - 273)}`}/>
+                <WeatherInfoComponent name={isDay ? "sunset" : "sunrise"}
+                                      value={`${getTime(weather?.sys[isDay ? "sunset" : "sunrise"])}`}/>
                 <WeatherInfoComponent name={"humidity"} value={weather?.main?.humidity}/>
                 <WeatherInfoComponent name={"wind"} value={weather?.wind?.speed}/>
                 <WeatherInfoComponent name={"pressure"} value={weather?.main?.pressure}/>
