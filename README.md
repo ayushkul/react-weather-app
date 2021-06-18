@@ -8,7 +8,7 @@ https://ayushkul.github.io/react-weather-app
 
 https://openweathermap.org/current
 
-###API Query
+### API Query
 `https://api.openweathermap.org/data/2.5/weather?q={CITY_NAME}&appid={API_KEY}`
 
 ### Libraries used
