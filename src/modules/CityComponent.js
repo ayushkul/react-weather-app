@@ -7,7 +7,7 @@ const SearchBox = styled.form`
   justify-content: space-evenly;
   margin: 20px;
   border: black solid 1px;
-  border-radius: 4px;
+  border-radius: 2px;
 
   & input {
     padding: 10px;
