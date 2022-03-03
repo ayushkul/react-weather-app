@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import Axios from "axios";
+import axios from "axios";
 import CityComponent from "./modules/CityComponent";
 import WeatherComponent from "./modules/WeatherInfoComponent";
 
@@ -53,7 +53,7 @@ function App() {
   const [weather, updateWeather] = useState();
   const fetchWeather = async (e) => {
     e.preventDefault();
-    const response = await Axios.get(
+    const response = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fe4feefa8543e06d4f3c66d92c61b69c`,
     );
     updateWeather(response.data);
