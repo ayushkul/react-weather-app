@@ -40,29 +40,43 @@ const AppLabel = styled.span`
   font-size: 18px;
   font-weight: bold;
 `;
-const CloseButton = styled.span`
-  padding: 2px 3px;
-  background-color: black;
-  border-radius: 50%;
+
+const ResetWeather = styled.button`
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 4px;
   color: white;
-  position: absolute;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
 `;
 
 function App() {
-  const [city, updateCity] = useState();
-  const [weather, updateWeather] = useState();
+  const [city, updateCity] = useState(null);
+  const [weather, updateWeather] = useState(null);
+
   const fetchWeather = async (e) => {
     e.preventDefault();
+
     const response = await Axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fe4feefa8543e06d4f3c66d92c61b69c`,
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fe4feefa8543e06d4f3c66d92c61b69c`
     );
+
     updateWeather(response.data);
   };
+
+  const resetWeather = () => updateWeather(null);
+
   return (
     <Container>
       <AppLabel>React Weather App</AppLabel>
       {city && weather ? (
-        <WeatherComponent weather={weather} city={city} />
+        <>
+          <ResetWeather onClick={() => resetWeather()}>
+            Check other city
+          </ResetWeather>
+          <WeatherComponent weather={weather} city={city} />
+        </>
       ) : (
         <CityComponent updateCity={updateCity} fetchWeather={fetchWeather} />
       )}
